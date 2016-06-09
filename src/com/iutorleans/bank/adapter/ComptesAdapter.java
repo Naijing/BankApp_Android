@@ -2,14 +2,13 @@ package com.iutorleans.bank.adapter;
 
 import java.util.ArrayList;
 
-//import android.R;
-import com.iutorleans.bank.R;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
-
+import com.iutorleans.bank.R;
 import com.iutorleans.bank.bean.ComptesBean;
 
 public class ComptesAdapter extends BaseAdapter {
@@ -56,6 +55,15 @@ public class ComptesAdapter extends BaseAdapter {
 			view = View.inflate(context, R.layout.item_comptes_layout, null);
 			
 		}
+		
+		TextView item_tv_nom = (TextView)view.findViewById(R.id.item_tv_nom);
+		TextView item_tv_solde = (TextView)view.findViewById(R.id.item_tv_solde);
+		
+		ComptesBean comptesBean = list.get(position);
+		
+		item_tv_nom.setText(comptesBean.nom);
+		item_tv_solde.setText(comptesBean.solde+"");
+		
 		
 		return view;
 	}
