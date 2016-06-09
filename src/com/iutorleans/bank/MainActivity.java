@@ -1,10 +1,18 @@
 package com.iutorleans.bank;
 
+import java.util.ArrayList;
+
+import com.iutorleans.bank.adapter.ComptesAdapter;
+import com.iutorleans.bank.bean.ComptesBean;
+import com.iutorleans.bank.utils.ComptesUtils;
+
 import android.app.Activity;
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
+//import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Menu;
+import android.widget.ListView;
 
 public class MainActivity extends Activity {
 
@@ -18,17 +26,17 @@ public class MainActivity extends Activity {
         
         mContext = this;
         
-        MySqliteOpenHelper mySqliteOpenHelper = new MySqliteOpenHelper(mContext);
-        SQLiteDatabase db = mySqliteOpenHelper.getReadableDatabase();
+        ListView lv_comptes = (ListView) findViewById(R.id.lv_comptes);
+        ArrayList<ComptesBean> allComptes= ComptesUtils.getAllComptes();
+        
+        ComptesAdapter comptesAdapter = new ComptesAdapter(mContext, allComptes);
+        lv_comptes.setAdapter(comptesAdapter);
+        //MySqliteOpenHelper mySqliteOpenHelper = new MySqliteOpenHelper(mContext);
+       // SQLiteDatabase db = mySqliteOpenHelper.getReadableDatabase();
         
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+    
     
 }
