@@ -11,12 +11,17 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Toast;
+
 import android.widget.ListView;
 
-public class ChargerActivity extends Activity {
+public class ChargerActivity extends Activity implements OnItemClickListener{
 	
 	private Context mContext1;
+	private ListView fileListView;
+	ArrayList<String> arrayList;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,19 +39,30 @@ public class ChargerActivity extends Activity {
 		}*/
 		
 		
-		ArrayList<String> arrayList = new ArrayList<String>();
+		arrayList = new ArrayList<String>();
 		for(File f : listFiles){
 		
 			arrayList.add(f.getName());
 		}
 		
-		ListView fileListView = (ListView)findViewById(R.id.lv_files);
+		fileListView = (ListView)findViewById(R.id.lv_files);
 		
 		FilesAdapter filesAdapter = new FilesAdapter(arrayList, mContext1);
 		fileListView.setAdapter(filesAdapter);
-		/*ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arrayList);
-		fileListView.setAdapter(arrayAdapter);*/
 		
+		fileListView.setOnItemClickListener(this);
+		
+		
+		
+		
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		String fileName = arrayList.get(position);
+		System.out.println(fileName);
+		Toast.makeText(this, fileName, 1).show();
 	}
 	
 	
