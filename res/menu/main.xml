@@ -1,9 +1,66 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
-
+            android:id="@+id/fichiers"
+            android:showAsAction="ifRoom|withText"
+            android:icon="@drawable/fichier"
+            android:title="Fichiers">
+            
+        <menu>
+            <item
+                android:id="@+id/sauver"
+                android:title="Sauver"
+                android:icon="@drawable/sauve">
+                
+            </item>
+            <item
+                android:id="@+id/charger"
+                android:title="Charger"
+                android:icon="@drawable/charger">
+                
+            </item>
+            <item
+                android:id="@+id/quitter"
+                android:title="Quitter"
+                android:icon="@drawable/quitter">
+                
+            </item>
+        </menu>
+    </item>
+    
+    <item
+            android:id="@+id/comptes"
+            android:showAsAction="ifRoom|withText"
+            android:title="Comptes"
+            android:icon="@drawable/comptes">
+        
+        <menu>
+            <item
+                android:id="@+id/creer"
+                android:title="Créer"
+                android:icon="@drawable/add">
+                
+            </item>
+            <item
+                android:id="@+id/debiter"
+                android:title="Débiter"
+                android:icon="@drawable/debiter">
+                
+            </item>
+            <item
+                android:id="@+id/crediter"
+                android:title="Crediter"
+                android:icon="@drawable/crediter">
+                
+            </item>
+            <item
+                android:id="@+id/supprimer"
+                android:title="Supprimer"
+                android:icon="@drawable/supprimer">
+                
+            </item>
+        </menu>
+    </item>
+    
+    
 </menu>
