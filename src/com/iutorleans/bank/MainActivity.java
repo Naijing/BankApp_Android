@@ -9,6 +9,7 @@ import com.iutorleans.bank.utils.ComptesUtils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 //import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -87,7 +88,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		
+
 		getMenuInflater().inflate(R.menu.main, menu);
 
 		return true;
@@ -99,15 +100,26 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		switch (item.getItemId()) {
 		case R.id.sauver:
-			
+
 			Toast.makeText(this, "sauver", 1).show();
 
 			break;
 
-		case R.id.creer:
-			
-			
-			Toast.makeText(this, "creer", 1).show();
+		case R.id.charger:
+
+			// Toast.makeText(this, "charger", 1).show();
+
+			Intent intentCharger = new Intent(this, ChargerActivity.class);
+			startActivity(intentCharger);
+
+			break;
+
+		case R.id.quitter:
+
+			// Toast.makeText(this, "charger", 1).show();
+
+			Intent intentQuitter = new Intent(this, QuitterActivity.class);
+			startActivity(intentQuitter);
 
 			break;
 
