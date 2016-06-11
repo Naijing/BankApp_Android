@@ -24,8 +24,7 @@
         </activity>
         <activity android:name="com.iutorleans.bank.ChargerActivity" >
         </activity>
-        <activity android:name="com.iutorleans.bank.QuitterActivity" >
-        </activity>
+        
     </application>
 
 </manifest>

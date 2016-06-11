@@ -37,26 +37,24 @@ public final class R {
         public static final int bt_del=0x7f080002;
         public static final int bt_query=0x7f080004;
         public static final int bt_update=0x7f080003;
-        public static final int charger=0x7f08000b;
-        public static final int comptes=0x7f08000d;
-        public static final int crediter=0x7f080010;
-        public static final int creer=0x7f08000e;
-        public static final int debiter=0x7f08000f;
-        public static final int fichiers=0x7f080009;
-        public static final int item_tv_nom=0x7f080007;
-        public static final int item_tv_solde=0x7f080008;
+        public static final int charger=0x7f08000a;
+        public static final int comptes=0x7f08000c;
+        public static final int crediter=0x7f08000f;
+        public static final int creer=0x7f08000d;
+        public static final int debiter=0x7f08000e;
+        public static final int fichiers=0x7f080008;
+        public static final int item_tv_nom=0x7f080006;
+        public static final int item_tv_solde=0x7f080007;
         public static final int lv_comptes=0x7f080005;
         public static final int lv_files=0x7f080000;
-        public static final int quitter=0x7f08000c;
-        public static final int sauver=0x7f08000a;
-        public static final int supprimer=0x7f080011;
-        public static final int textView1=0x7f080006;
+        public static final int quitter=0x7f08000b;
+        public static final int sauver=0x7f080009;
+        public static final int supprimer=0x7f080010;
     }
     public static final class layout {
         public static final int activity_charger=0x7f030000;
         public static final int activity_main=0x7f030001;
-        public static final int activity_quitter=0x7f030002;
-        public static final int item_comptes_layout=0x7f030003;
+        public static final int item_comptes_layout=0x7f030002;
     }
     public static final class menu {
         public static final int main=0x7f070000;
