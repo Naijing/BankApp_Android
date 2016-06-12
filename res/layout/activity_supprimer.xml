@@ -2,31 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical" >
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Supprimer les comptes cochés: " />
+        android:layout_marginTop="30dp"
+        android:text="Supprimer les comptes cochés"
+        android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/buttonSupprimer"
-        android:layout_width="wrap_content"
+    <LinearLayout 
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Supprimer" />
+        android:orientation="horizontal"
+        android:gravity="center">
 
-    <Button
-        android:id="@+id/buttonAnnulerSupprimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Annuler" />
-    
-    <ListView 
+        <Button
+            android:id="@+id/buttonSupprimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Supprimer" />
+
+        <Button
+            android:id="@+id/buttonAnnulerSupprimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Annuler" />
+    </LinearLayout>
+
+    <ListView
         android:id="@+id/lv_comptes_supprimer"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-        
+        android:layout_height="fill_parent" >
     </ListView>
 
 </LinearLayout>
