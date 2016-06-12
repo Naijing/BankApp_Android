@@ -30,6 +30,16 @@ public class ComptesDao {
 
 	}
 
+	public int del(ComptesBean bean) {
+
+		SQLiteDatabase db = mySqliteOpenHelper.getReadableDatabase();
+		int result = db.delete("bank", "_id=?",
+				new String[] { String.valueOf(bean.id) });
+		db.close();
+		return result;
+
+	}
+
 	public boolean create(ComptesBean bean) {
 
 		SQLiteDatabase db = mySqliteOpenHelper.getReadableDatabase();
@@ -68,6 +78,7 @@ public class ComptesDao {
 				Float solde = cursor.getFloat(2);
 				// System.out.println("id:"+id+";name:"+name+";solde:"+solde);
 				ComptesBean comptesBean = new ComptesBean();
+				comptesBean.id = id;
 				comptesBean.nom = name;
 				comptesBean.solde = solde;
 				arrayList.add(comptesBean);

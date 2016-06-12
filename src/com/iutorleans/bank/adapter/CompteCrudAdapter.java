@@ -19,6 +19,7 @@ import android.widget.TextView;
 public class CompteCrudAdapter extends BaseAdapter {
 
 	private ArrayList<ComptesBean> list;
+	private ArrayList<ComptesBean> listComptesChecked = new ArrayList<ComptesBean>() ;
 	private Context context;
 	Map<Integer, Boolean> isCheckMap = new HashMap<Integer, Boolean>();
 
@@ -87,20 +88,29 @@ public class CompteCrudAdapter extends BaseAdapter {
 					public void onCheckedChanged(CompoundButton buttonView,
 							boolean isChecked) {
 						int checkBoxId = Integer.parseInt(buttonView.getTag()
-								.toString());
+								.toString());						
+						
 						if (isChecked) {
-							
+							System.out.println(list.get(checkBoxId).nom);
+							listComptesChecked.add(list.get(checkBoxId));
 							isCheckMap.put(checkBoxId, isChecked);
+							
 
-							 System.out.println("on"+checkBoxId);
+							// System.out.println("on"+checkBoxId);
 						} else {
-							 System.out.println("off"+checkBoxId);
+							// System.out.println("off"+checkBoxId);
+							listComptesChecked.remove(list.get(checkBoxId));
 							isCheckMap.remove(checkBoxId);
+							
 						}
 					}
 				});
 
 		return view;
+	}
+
+	public ArrayList<ComptesBean> getListComptesChecked() {
+		return listComptesChecked;
 	}
 
 }

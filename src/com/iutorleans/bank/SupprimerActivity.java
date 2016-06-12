@@ -29,6 +29,7 @@ public class SupprimerActivity extends Activity implements OnClickListener, OnIt
 	private Button buttonSupprimer;
 	private Button buttonAnnuler;
 	private ArrayList<ComptesBean> allComptes;
+	private ArrayList<ComptesBean> listComptesChecked;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class SupprimerActivity extends Activity implements OnClickListener, OnIt
 
 		CompteCrudAdapter compteCrudAdapter = new CompteCrudAdapter(mContext,
 				allComptes);
+		listComptesChecked=compteCrudAdapter.getListComptesChecked();
 		lv_comptes.setAdapter(compteCrudAdapter);
 
 		buttonSupprimer = (Button) findViewById(R.id.buttonSupprimer);
@@ -58,8 +60,19 @@ public class SupprimerActivity extends Activity implements OnClickListener, OnIt
 
 	@Override
 	public void onClick(View v) {
+		
 		switch (v.getId()) {
 		case R.id.buttonSupprimer:
+			ComptesDao comptesDao = new ComptesDao(mContext);
+			int i=0;
+			for(ComptesBean c:listComptesChecked){
+				int res = comptesDao.del(c);
+				if(res!=-1){i++;}
+			}
+			
+			System.out.println(i);
+			Intent intent = new Intent(this, SupprimerActivity.class);
+			startActivity(intent);
 
 			break;
 		case R.id.buttonAnnulerSupprimer:
@@ -77,7 +90,7 @@ public class SupprimerActivity extends Activity implements OnClickListener, OnIt
 		
 		ComptesBean bean = allComptes.get(position);
 		//System.out.println("helo");
-		Toast.makeText(this, bean.nom, 1).show();
+		//Toast.makeText(this, bean.id+" ", 1).show();
 		/*Intent intent = new Intent();
 		intent.setAction(Intent.ACTION_VIEW);
 		intent.setData(Uri.parse("http://www.baidu.com"));
