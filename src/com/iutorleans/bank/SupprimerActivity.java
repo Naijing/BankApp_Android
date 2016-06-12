@@ -71,7 +71,7 @@ public class SupprimerActivity extends Activity implements OnClickListener, OnIt
 			}
 			
 			System.out.println(i);
-			Toast.makeText(this, "Vous avez bien supprimé"+i+"compte(s)", 1).show();
+			Toast.makeText(this, "Vous avez bien supprimé "+i+" compte(s)", 1).show();
 			Intent intent = new Intent(this, MainActivity.class);
 			startActivity(intent);
 
