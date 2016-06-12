@@ -25,7 +25,7 @@
         <activity android:name="com.iutorleans.bank.ChargerActivity" >
         </activity>
         <activity android:name="com.iutorleans.bank.CreerActivity"></activity>
-        
+        <activity android:name="com.iutorleans.bank.SupprimerActivity"></activity>
     </application>
 
 </manifest>

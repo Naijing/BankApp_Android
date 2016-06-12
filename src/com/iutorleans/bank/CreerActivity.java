@@ -16,8 +16,8 @@ public class CreerActivity extends Activity implements OnClickListener {
 
 	
 	private static final int LENGTH_LONG = 1;
-	EditText nomCreer;
-	EditText soldeCreer;
+	private EditText nomCreer;
+	private EditText soldeCreer;
 	private Context mContext ;
 
 	@Override

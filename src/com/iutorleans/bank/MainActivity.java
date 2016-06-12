@@ -128,6 +128,13 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(intentCreer);
 
 			break;
+
+		case R.id.supprimer:
+
+			Intent intentSupprimer = new Intent(this, SupprimerActivity.class);
+			startActivity(intentSupprimer);
+
+			break;
 		default:
 			break;
 		}
