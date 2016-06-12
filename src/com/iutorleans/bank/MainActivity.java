@@ -115,14 +115,19 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 
 		case R.id.quitter:
-			
+
 			Intent intent = new Intent(Intent.ACTION_MAIN);
 			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			intent.addCategory(Intent.CATEGORY_HOME);
 			startActivity(intent);
 
 			break;
+		case R.id.creer:
 
+			Intent intentCreer = new Intent(this, CreerActivity.class);
+			startActivity(intentCreer);
+
+			break;
 		default:
 			break;
 		}
