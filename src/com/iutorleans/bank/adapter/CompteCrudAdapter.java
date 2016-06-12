@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+
 import android.widget.TextView;
 
 public class CompteCrudAdapter extends BaseAdapter {
@@ -66,8 +68,27 @@ public class CompteCrudAdapter extends BaseAdapter {
 		item_tv_nom.setText(comptesBean.nom);
 		item_tv_solde.setText(comptesBean.solde + "");
 		item_tv_crud_checkBox.setTag(position);
+		
+		item_tv_crud_checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				int radiaoId = Integer.parseInt(buttonView.getTag().toString());
+				if(isChecked)
+				{
+					
+					System.out.println("on"+radiaoId);
+				}
+				else
+				{
+					System.out.println("off"+radiaoId);
+					
+				}
+			}
+		});
 
 		return view;
 	}
+	
+	
 
 }
