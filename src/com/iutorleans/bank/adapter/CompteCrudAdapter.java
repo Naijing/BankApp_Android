@@ -1,6 +1,8 @@
 package com.iutorleans.bank.adapter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.iutorleans.bank.R;
 import com.iutorleans.bank.bean.ComptesBean;
@@ -18,6 +20,7 @@ public class CompteCrudAdapter extends BaseAdapter {
 
 	private ArrayList<ComptesBean> list;
 	private Context context;
+	Map<Integer, Boolean> isCheckMap = new HashMap<Integer, Boolean>();
 
 	public CompteCrudAdapter(Context context, ArrayList<ComptesBean> list) {
 
@@ -53,42 +56,51 @@ public class CompteCrudAdapter extends BaseAdapter {
 
 		} else {
 
-			view = View.inflate(context, R.layout.item_comptes_checkbox_layout, null);
+			view = View.inflate(context, R.layout.item_comptes_checkbox_layout,
+					null);
 
 		}
 
-		TextView item_tv_nom = (TextView) view.findViewById(R.id.item_tv_crud_nom);
+		TextView item_tv_nom = (TextView) view
+				.findViewById(R.id.item_tv_crud_nom);
 		TextView item_tv_solde = (TextView) view
 				.findViewById(R.id.item_tv_crud_solde);
-		
-		CheckBox item_tv_crud_checkBox = (CheckBox)view.findViewById(R.id.item_tv_crud_checkBox);
+
+		CheckBox item_tv_crud_checkBox = (CheckBox) view
+				.findViewById(R.id.item_tv_crud_checkBox);
 
 		ComptesBean comptesBean = list.get(position);
 
 		item_tv_nom.setText(comptesBean.nom);
 		item_tv_solde.setText(comptesBean.solde + "");
 		item_tv_crud_checkBox.setTag(position);
-		
-		item_tv_crud_checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				int radiaoId = Integer.parseInt(buttonView.getTag().toString());
-				if(isChecked)
-				{
-					
-					System.out.println("on"+radiaoId);
-				}
-				else
-				{
-					System.out.println("off"+radiaoId);
-					
-				}
-			}
-		});
+
+		if (isCheckMap != null && isCheckMap.containsKey(position)) {
+			item_tv_crud_checkBox.setChecked(isCheckMap.get(position));
+		} else {
+			item_tv_crud_checkBox.setChecked(false);
+		}
+
+		item_tv_crud_checkBox
+				.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+					@Override
+					public void onCheckedChanged(CompoundButton buttonView,
+							boolean isChecked) {
+						int checkBoxId = Integer.parseInt(buttonView.getTag()
+								.toString());
+						if (isChecked) {
+							
+							isCheckMap.put(checkBoxId, isChecked);
+
+							 System.out.println("on"+checkBoxId);
+						} else {
+							 System.out.println("off"+checkBoxId);
+							isCheckMap.remove(checkBoxId);
+						}
+					}
+				});
 
 		return view;
 	}
-	
-	
 
 }
