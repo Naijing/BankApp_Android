@@ -15,11 +15,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.view.View.OnClickListener;
+
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends Activity {
 
 	private Context mContext;
 
@@ -39,13 +39,18 @@ public class MainActivity extends Activity implements OnClickListener {
 		// MySqliteOpenHelper mySqliteOpenHelper = new
 		// MySqliteOpenHelper(mContext);
 		// SQLiteDatabase db = mySqliteOpenHelper.getReadableDatabase();
+		
+		ComptesDao comptesDao = new ComptesDao(mContext);
+		ListView lv_comptes = (ListView) findViewById(R.id.lv_comptes);
+		ArrayList<ComptesBean> allComptes = comptesDao.query();
 
-		findViewById(R.id.bt_add).setOnClickListener(this);
-		findViewById(R.id.bt_query).setOnClickListener(this);
+		ComptesAdapter comptesAdapter = new ComptesAdapter(mContext,
+				allComptes);
+		lv_comptes.setAdapter(comptesAdapter);
 
 	}
 
-	@Override
+	/*@Override
 	public void onClick(View v) {
 
 		ComptesDao comptesDao = new ComptesDao(mContext);
@@ -84,7 +89,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		}
 
-	}
+	}*/
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

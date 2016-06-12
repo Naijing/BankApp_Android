@@ -7,40 +7,28 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:gravity="center" >
+	
     
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bt_add"
-        android:text="add"
-        />
+    <ImageView
+        android:id="@+id/imghome"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:src="@drawable/home" />
     
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bt_del"
-        android:text="del"
-        />
     
-    <Button
-        android:layout_width="fill_parent"
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/bt_update"
-        android:text="update"
-        />
-    
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bt_query"
-        android:text="query"
-        />
+        android:text="Bienvue sur BankApp!" 
+        android:layout_marginTop="30dp"
+        android:textSize="25sp"/>
     
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/lv_comptes" /> 
-    
 
 </LinearLayout>
