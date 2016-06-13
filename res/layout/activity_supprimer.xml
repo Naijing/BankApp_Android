@@ -23,6 +23,8 @@
         android:orientation="horizontal"
         android:gravity="center">
 
+        
+
         <Button
             android:id="@+id/buttonSupprimer"
             android:layout_width="wrap_content"

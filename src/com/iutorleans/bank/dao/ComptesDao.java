@@ -29,6 +29,21 @@ public class ComptesDao {
 		return result;
 
 	}
+	
+	public int update(String solde, int id) {
+
+		SQLiteDatabase db = mySqliteOpenHelper.getReadableDatabase();
+		
+		ContentValues values = new ContentValues();
+		values.put("solde", solde);
+		int result = db.update("bank",values, "_id=?",
+				new String[] {  String.valueOf(id) });
+		db.close();
+		return result;
+
+	}
+	
+	
 
 	public boolean create(ComptesBean bean) {
 
