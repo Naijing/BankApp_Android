@@ -2,8 +2,6 @@ package com.iutorleans.bank.adapter;
 
 import java.util.ArrayList;
 
-import com.iutorleans.bank.R;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +49,9 @@ public class FilesAdapter extends BaseAdapter {
 		}	
 		
 		view.setText(list.get(position));
+		view.setMinHeight(0); // Min Height
+		view.setMinimumHeight(0); // Min Height 
+		view.setHeight(44); // Height
 		
 		return view;
 		

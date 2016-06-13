@@ -20,7 +20,6 @@ public class ComptesDao {
 
 	}
 
-
 	public int del(ComptesBean bean) {
 
 		SQLiteDatabase db = mySqliteOpenHelper.getReadableDatabase();
