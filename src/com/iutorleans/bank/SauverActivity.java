@@ -38,12 +38,14 @@ public class SauverActivity extends Activity implements OnClickListener{
 		
 		//code read the db query(), and write it to a file en sdcard
 		
-		//System.out.println(allComptes.get(1).nom);
 		try{
 		String path=Environment.getExternalStorageDirectory().getPath();
-		File file = new File(path,"bd.txt");
-		
-		String compteinfo=allComptes.get(1).id+"##"+allComptes.get(1).nom+"##"+allComptes.get(1).solde;                
+		File file = new File(path,"bd1.txt");
+		String compteinfo="";
+		for(ComptesBean c:allComptes){
+			compteinfo=compteinfo+c.id+"##"+c.nom+"##"+c.solde+"\n";
+		}
+		//String compteinfo=allComptes.get(1).id+"##"+allComptes.get(1).nom+"##"+allComptes.get(1).solde;                
 		
 		FileOutputStream fileOutputStream = new FileOutputStream(file);
 		fileOutputStream.write(compteinfo.getBytes());
