@@ -20,15 +20,6 @@ public class ComptesDao {
 
 	}
 
-	public void add(ComptesBean bean) {
-
-		SQLiteDatabase db = mySqliteOpenHelper.getReadableDatabase();
-
-		db.execSQL("insert into bank(nom, solde) values(?,?);", new Object[] {
-				bean.nom, bean.solde });
-		db.close();
-
-	}
 
 	public int del(ComptesBean bean) {
 

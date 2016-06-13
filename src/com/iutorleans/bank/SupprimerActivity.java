@@ -23,7 +23,8 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class SupprimerActivity extends Activity implements OnClickListener, OnItemClickListener {
+public class SupprimerActivity extends Activity implements OnClickListener,
+		OnItemClickListener {
 
 	private Context mContext;
 	private Button buttonSupprimer;
@@ -38,13 +39,14 @@ public class SupprimerActivity extends Activity implements OnClickListener, OnIt
 		setContentView(R.layout.activity_supprimer);
 		mContext = this;
 
-		ListView lv_comptes = (ListView) findViewById(R.id.lv_comptes_supprimer);
 		ComptesDao comptesDao = new ComptesDao(mContext);
 		allComptes = comptesDao.query();
 
+		ListView lv_comptes = (ListView) findViewById(R.id.lv_comptes_supprimer);
+
 		CompteCrudAdapter compteCrudAdapter = new CompteCrudAdapter(mContext,
 				allComptes);
-		listComptesChecked=compteCrudAdapter.getListComptesChecked();
+		listComptesChecked = compteCrudAdapter.getListComptesChecked();
 		lv_comptes.setAdapter(compteCrudAdapter);
 
 		buttonSupprimer = (Button) findViewById(R.id.buttonSupprimer);
@@ -52,26 +54,28 @@ public class SupprimerActivity extends Activity implements OnClickListener, OnIt
 
 		buttonSupprimer.setOnClickListener(this);
 		buttonAnnuler.setOnClickListener(this);
-		
+
 		lv_comptes.setOnItemClickListener(this);
-		
-		
+
 	}
 
 	@Override
 	public void onClick(View v) {
-		
+
 		switch (v.getId()) {
 		case R.id.buttonSupprimer:
 			ComptesDao comptesDao = new ComptesDao(mContext);
-			int i=0;
-			for(ComptesBean c:listComptesChecked){
+			int i = 0;
+			for (ComptesBean c : listComptesChecked) {
 				int res = comptesDao.del(c);
-				if(res!=-1){i++;}
+				if (res != -1) {
+					i++;
+				}
 			}
-			
+
 			System.out.println(i);
-			Toast.makeText(this, "Vous avez bien supprimé "+i+" compte(s)", 1).show();
+			Toast.makeText(this, "Vous avez bien supprimé " + i + " compte(s)",
+					1).show();
 			Intent intent = new Intent(this, MainActivity.class);
 			startActivity(intent);
 
@@ -88,18 +92,15 @@ public class SupprimerActivity extends Activity implements OnClickListener, OnIt
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
-		
+
 		ComptesBean bean = allComptes.get(position);
-		//System.out.println("helo");
-		//Toast.makeText(this, bean.id+" ", 1).show();
-		/*Intent intent = new Intent();
-		intent.setAction(Intent.ACTION_VIEW);
-		intent.setData(Uri.parse("http://www.baidu.com"));
-		startActivity(intent);*/
+		// System.out.println("helo");
+		// Toast.makeText(this, bean.id+" ", 1).show();
+		/*
+		 * Intent intent = new Intent(); intent.setAction(Intent.ACTION_VIEW);
+		 * intent.setData(Uri.parse("http://www.baidu.com"));
+		 * startActivity(intent);
+		 */
 	}
-
-
-	
-	
 
 }

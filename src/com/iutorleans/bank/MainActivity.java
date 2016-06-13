@@ -105,8 +105,9 @@ public class MainActivity extends Activity {
 
 		switch (item.getItemId()) {
 		case R.id.sauver:
-
-			Toast.makeText(this, "sauver", 1).show();
+			Intent intentSauver = new Intent(this, SauverActivity.class);
+			startActivity(intentSauver);
+			
 
 			break;
 

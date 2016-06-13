@@ -7,6 +7,7 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -26,6 +27,7 @@
         </activity>
         <activity android:name="com.iutorleans.bank.CreerActivity"></activity>
         <activity android:name="com.iutorleans.bank.SupprimerActivity"></activity>
+    	<activity android:name="com.iutorleans.bank.SauverActivity"></activity>
     </application>
 
 </manifest>
