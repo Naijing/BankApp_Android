@@ -34,31 +34,50 @@ public class SauverActivity extends Activity implements OnClickListener {
 		allComptes = comptesDao.query();
 
 		et_nom_fichier = (EditText) findViewById(R.id.et_nom_fichier);
-		Button btn = (Button) findViewById(R.id.buttonExporter);
-		btn.setOnClickListener(this);
+		Button buttonExporter = (Button) findViewById(R.id.buttonExporter);
+		Button btn_sauver_annuler = (Button) findViewById(R.id.btn_sauver_annuler);
+		buttonExporter.setOnClickListener(this);
+		btn_sauver_annuler.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
 
-		if (et_nom_fichier.getText().toString().length() > 0) {
+		switch (v.getId()) {
+		case R.id.buttonExporter:
+			
+			if (et_nom_fichier.getText().toString().length() > 0) {
 
-			try {
-				saveCompteInfo();
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
+				try {
+					saveCompteInfo();
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				Toast.makeText(this, "Exporter la base de donnée en ", 1).show();
+
+				Intent intent = new Intent(this, MainActivity.class);
+				startActivity(intent);
+
+			} else {
+
+				Toast.makeText(this, "Veuillez saisir un nom de fichier", 1).show();
 			}
-			Toast.makeText(this, "Exporter la base de donnée en ", 1).show();
 
-			Intent intent = new Intent(this, MainActivity.class);
-			startActivity(intent);
+			break;
+		case R.id.btn_sauver_annuler:
+			
+			Intent intent1 = new Intent(this,MainActivity.class);
+			startActivity(intent1);
 
-		} else {
+			break;
 
-			Toast.makeText(this, "Veuillez saisir un nom de fichier", 1).show();
+		default:
+			break;
 		}
+
+		
 
 	}
 
@@ -67,8 +86,7 @@ public class SauverActivity extends Activity implements OnClickListener {
 		File file = new File(path, et_nom_fichier.getText().toString().trim());
 		String compteinfo = "";
 		for (ComptesBean c : allComptes) {
-			compteinfo = compteinfo + c.id + "#" + c.nom + "##" + c.solde
-					+ "\n";
+			compteinfo = compteinfo + c.id + "#" + c.nom + "#" + c.solde + "\n";
 		}
 
 		FileOutputStream fileOutputStream = new FileOutputStream(file);

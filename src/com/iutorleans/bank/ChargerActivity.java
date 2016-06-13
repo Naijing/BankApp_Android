@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
+
 
 
 import com.iutorleans.bank.adapter.FilesAdapter;
@@ -19,13 +19,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
 import android.widget.ListView;
 
-public class ChargerActivity extends Activity implements OnItemClickListener {
+public class ChargerActivity extends Activity implements OnItemClickListener, OnClickListener {
 
 	private Context mContext1;
 	private ListView fileListView;
@@ -40,6 +42,11 @@ public class ChargerActivity extends Activity implements OnItemClickListener {
 		setContentView(R.layout.activity_charger);
 
 		mContext1 = this;
+		
+		Button btn_charger_annuler = (Button)findViewById(R.id.btn_charger_annuler);
+		
+		btn_charger_annuler.setOnClickListener(this);
+		
 		if (!Environment.getExternalStorageState().equals(
 				Environment.MEDIA_MOUNTED)) {
 			Toast.makeText(mContext1, "unmounted", Toast.LENGTH_SHORT).show();
@@ -104,6 +111,13 @@ public class ChargerActivity extends Activity implements OnItemClickListener {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+		
+	}
+
+	@Override
+	public void onClick(View v) {
+		Intent intent = new Intent(this, MainActivity.class);
+		startActivity(intent);
 		
 	}
 
