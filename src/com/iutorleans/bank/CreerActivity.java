@@ -42,6 +42,7 @@ public class CreerActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.buttoncreer:
+			if((nomCreer.getText().toString().length() > 0)&&(soldeCreer.getText().toString().length() > 0)){
 			ComptesDao comptesDao = new ComptesDao(mContext);
 
 			String solde = soldeCreer.getText().toString().trim();
@@ -60,6 +61,9 @@ public class CreerActivity extends Activity implements OnClickListener {
 			}
 			Intent intent = new Intent(this, MainActivity.class);
 			startActivity(intent);
+			}else{
+				Toast.makeText(this, "Veuillez remplir tous les champs", LENGTH_LONG).show();
+			}
 			break;
 
 		case R.id.btn_creer_annuler:

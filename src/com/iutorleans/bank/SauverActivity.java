@@ -55,7 +55,7 @@ public class SauverActivity extends Activity implements OnClickListener {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				Toast.makeText(this, "Exporter la base de donnée en ", 1).show();
+				Toast.makeText(this, "Exporter la base de donnée en SDCard", 1).show();
 
 				Intent intent = new Intent(this, MainActivity.class);
 				startActivity(intent);
