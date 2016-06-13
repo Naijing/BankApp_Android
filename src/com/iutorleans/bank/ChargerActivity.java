@@ -89,7 +89,7 @@ public class ChargerActivity extends Activity implements OnItemClickListener {
 			
 			while (bufferedReader.ready()) {  
 				String readLine = bufferedReader.readLine();
-				String[] split = readLine.split("##");
+				String[] split = readLine.split("#");
 				ComptesBean bean = new ComptesBean();
 				bean.nom=split[1];
 				bean.solde=Float.parseFloat(split[2]);

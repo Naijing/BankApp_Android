@@ -106,8 +106,7 @@ public class MainActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.sauver:
 			Intent intentSauver = new Intent(this, SauverActivity.class);
-			startActivity(intentSauver);
-			
+			startActivity(intentSauver);			
 
 			break;
 
