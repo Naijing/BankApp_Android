@@ -67,7 +67,7 @@ public class SauverActivity extends Activity implements OnClickListener {
 		File file = new File(path, et_nom_fichier.getText().toString().trim());
 		String compteinfo = "";
 		for (ComptesBean c : allComptes) {
-			compteinfo = compteinfo + c.id + "##" + c.nom + "##" + c.solde
+			compteinfo = compteinfo + c.id + "#" + c.nom + "##" + c.solde
 					+ "\n";
 		}
 

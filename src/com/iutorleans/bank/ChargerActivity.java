@@ -80,7 +80,6 @@ public class ChargerActivity extends Activity implements OnItemClickListener {
 		try {
 			String fileName = arrayList.get(position);
 			
-			//Toast.makeText(this, fileName, 1).show();
 			String path=Environment.getExternalStorageDirectory().getPath();
 			
 			File file = new File(path,fileName);
@@ -94,11 +93,8 @@ public class ChargerActivity extends Activity implements OnItemClickListener {
 				bean.nom=split[1];
 				bean.solde=Float.parseFloat(split[2]);
 				comptesDao.create(bean);				
-	          }  
-						
-			/*HashMap<String, String> hashMap = new HashMap<String, String>();
-			hashMap.put("nom", split[1]);
-			hashMap.put("solde", split[2]);*/	
+	          }  						
+			System.out.println("lalallalal");
 			bufferedReader.close();
 			fileInputStream.close();
 			Toast.makeText(this, fileName, 1).show();

@@ -81,7 +81,8 @@ public class SupprimerActivity extends Activity implements OnClickListener,
 
 			break;
 		case R.id.buttonAnnulerSupprimer:
-
+			Intent intent1 = new Intent(this, MainActivity.class);
+			startActivity(intent1);
 			break;
 		default:
 			break;
