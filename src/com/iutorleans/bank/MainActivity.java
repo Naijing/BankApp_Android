@@ -150,12 +150,8 @@ public class MainActivity extends Activity {
 			startActivity(intentDebiter);
 
 			break;
-		case R.id.query:
+		
 
-			Intent intentQuery = new Intent(this, QueryActivity.class);
-			startActivity(intentQuery);
-
-			break;
 		default:
 			break;
 		}

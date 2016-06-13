@@ -58,11 +58,13 @@ public class ComptesAdapter extends BaseAdapter {
 		
 		TextView item_tv_nom = (TextView)view.findViewById(R.id.item_tv_nom);
 		TextView item_tv_solde = (TextView)view.findViewById(R.id.item_tv_solde);
+		TextView item_tv_id = (TextView)view.findViewById(R.id.item_tv_id);
 		
 		ComptesBean comptesBean = list.get(position);
 		
 		item_tv_nom.setText(comptesBean.nom);
 		item_tv_solde.setText(comptesBean.solde+"");
+		item_tv_id.setText("N°"+comptesBean.id);
 		
 		
 		return view;

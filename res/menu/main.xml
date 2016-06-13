@@ -49,10 +49,7 @@
                 android:icon="@drawable/supprimer"
                 android:title="Supprimer">
             </item>
-            <item
-                android:id="@+id/query"
-                android:title="Chercher">
-            </item>
+            
         </menu>
     </item>
 

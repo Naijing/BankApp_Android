@@ -104,7 +104,7 @@ public class ChargerActivity extends Activity implements OnItemClickListener, On
 			System.out.println("lalallalal");
 			bufferedReader.close();
 			fileInputStream.close();
-			Toast.makeText(this, fileName, 1).show();
+			Toast.makeText(this, "Charger"+fileName+"réussi", 1).show();
 			Intent intent = new Intent(this,MainActivity.class);
 			startActivity(intent);
 			

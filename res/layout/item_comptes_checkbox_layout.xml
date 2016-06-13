@@ -3,24 +3,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="blocksDescendants"
-    android:orientation="horizontal"
     android:gravity="center"
-    android:paddingTop="20dp"
-    android:paddingBottom="20dp" >
+    android:orientation="horizontal"
+    android:paddingBottom="20dp"
+    android:paddingTop="20dp" >
+
+    <TextView
+        android:id="@+id/item_tv_crud_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp" />
 
     <TextView
         android:id="@+id/item_tv_crud_nom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" 
-        android:layout_marginRight="30dp"/>
+        android:layout_marginRight="30dp"
+        android:text="TextView" />
 
     <TextView
         android:id="@+id/item_tv_crud_solde"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" 
-        android:layout_marginRight="30dp"/>
+        android:layout_marginRight="30dp"
+        android:text="TextView" />
 
     <CheckBox
         android:id="@+id/item_tv_crud_checkBox"
