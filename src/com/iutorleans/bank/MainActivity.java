@@ -39,57 +39,53 @@ public class MainActivity extends Activity {
 		// MySqliteOpenHelper mySqliteOpenHelper = new
 		// MySqliteOpenHelper(mContext);
 		// SQLiteDatabase db = mySqliteOpenHelper.getReadableDatabase();
-		
+
 		ComptesDao comptesDao = new ComptesDao(mContext);
 		ListView lv_comptes = (ListView) findViewById(R.id.lv_comptes);
 		ArrayList<ComptesBean> allComptes = comptesDao.query();
 
-		ComptesAdapter comptesAdapter = new ComptesAdapter(mContext,
-				allComptes);
+		ComptesAdapter comptesAdapter = new ComptesAdapter(mContext, allComptes);
 		lv_comptes.setAdapter(comptesAdapter);
 
 	}
 
-	/*@Override
-	public void onClick(View v) {
-
-		ComptesDao comptesDao = new ComptesDao(mContext);
-
-		switch (v.getId()) {
-
-		case R.id.bt_add:
-
-			ComptesBean comptesBean = new ComptesBean();
-			comptesBean.nom = "kiki";
-			comptesBean.solde = 7200;
-
-			comptesDao.add(comptesBean);
-
-			ComptesBean comptesBean1 = new ComptesBean();
-			comptesBean1.nom = "wowo";
-			comptesBean1.solde = 120000;
-
-			comptesDao.add(comptesBean1);
-
-			break;
-
-		case R.id.bt_query:
-
-			ListView lv_comptes = (ListView) findViewById(R.id.lv_comptes);
-			ArrayList<ComptesBean> allComptes = comptesDao.query();
-
-			ComptesAdapter comptesAdapter = new ComptesAdapter(mContext,
-					allComptes);
-			lv_comptes.setAdapter(comptesAdapter);
-
-			break;
-
-		default:
-			break;
-
-		}
-
-	}*/
+	/*
+	 * @Override public void onClick(View v) {
+	 * 
+	 * ComptesDao comptesDao = new ComptesDao(mContext);
+	 * 
+	 * switch (v.getId()) {
+	 * 
+	 * case R.id.bt_add:
+	 * 
+	 * ComptesBean comptesBean = new ComptesBean(); comptesBean.nom = "kiki";
+	 * comptesBean.solde = 7200;
+	 * 
+	 * comptesDao.add(comptesBean);
+	 * 
+	 * ComptesBean comptesBean1 = new ComptesBean(); comptesBean1.nom = "wowo";
+	 * comptesBean1.solde = 120000;
+	 * 
+	 * comptesDao.add(comptesBean1);
+	 * 
+	 * break;
+	 * 
+	 * case R.id.bt_query:
+	 * 
+	 * ListView lv_comptes = (ListView) findViewById(R.id.lv_comptes);
+	 * ArrayList<ComptesBean> allComptes = comptesDao.query();
+	 * 
+	 * ComptesAdapter comptesAdapter = new ComptesAdapter(mContext, allComptes);
+	 * lv_comptes.setAdapter(comptesAdapter);
+	 * 
+	 * break;
+	 * 
+	 * default: break;
+	 * 
+	 * }
+	 * 
+	 * }
+	 */
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -106,7 +102,7 @@ public class MainActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.sauver:
 			Intent intentSauver = new Intent(this, SauverActivity.class);
-			startActivity(intentSauver);			
+			startActivity(intentSauver);
 
 			break;
 
@@ -138,6 +134,26 @@ public class MainActivity extends Activity {
 
 			Intent intentSupprimer = new Intent(this, SupprimerActivity.class);
 			startActivity(intentSupprimer);
+
+			break;
+
+		case R.id.crediter:
+
+			Intent intentCrediter = new Intent(this, CrediterActivity.class);
+			startActivity(intentCrediter);
+
+			break;
+			
+		case R.id.debiter:
+
+			Intent intentDebiter = new Intent(this, DebiterActivity.class);
+			startActivity(intentDebiter);
+
+			break;
+		case R.id.query:
+
+			Intent intentQuery = new Intent(this, QueryActivity.class);
+			startActivity(intentQuery);
 
 			break;
 		default:

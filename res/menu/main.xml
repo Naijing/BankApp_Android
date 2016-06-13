@@ -1,66 +1,59 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-            android:id="@+id/fichiers"
-            android:showAsAction="ifRoom|withText"
-            android:icon="@drawable/fichier"
-            android:title="Fichiers">
-            
+        android:id="@+id/fichiers"
+        android:icon="@drawable/fichier"
+        android:showAsAction="ifRoom|withText"
+        android:title="Fichiers">
         <menu>
             <item
                 android:id="@+id/sauver"
-                android:title="Sauver"
-                android:icon="@drawable/sauve">
-                
+                android:icon="@drawable/sauve"
+                android:title="Sauver">
             </item>
             <item
                 android:id="@+id/charger"
-                android:title="Charger"
-                android:icon="@drawable/charger">
-                
+                android:icon="@drawable/charger"
+                android:title="Charger">
             </item>
             <item
                 android:id="@+id/quitter"
-                android:title="Quitter"
-                android:icon="@drawable/quitter">
-                
+                android:icon="@drawable/quitter"
+                android:title="Quitter">
             </item>
         </menu>
     </item>
-    
     <item
-            android:id="@+id/comptes"
-            android:showAsAction="ifRoom|withText"
-            android:title="Comptes"
-            android:icon="@drawable/comptes">
-        
+        android:id="@+id/comptes"
+        android:icon="@drawable/comptes"
+        android:showAsAction="ifRoom|withText"
+        android:title="Comptes">
         <menu>
             <item
                 android:id="@+id/creer"
-                android:title="Créer"
-                android:icon="@drawable/add">
-                
+                android:icon="@drawable/add"
+                android:title="Créer">
             </item>
             <item
                 android:id="@+id/debiter"
-                android:title="Débiter"
-                android:icon="@drawable/debiter">
-                
+                android:icon="@drawable/debiter"
+                android:title="Débiter">
             </item>
             <item
                 android:id="@+id/crediter"
-                android:title="Crediter"
-                android:icon="@drawable/crediter">
-                
+                android:icon="@drawable/crediter"
+                android:title="Crediter">
             </item>
             <item
                 android:id="@+id/supprimer"
-                android:title="Supprimer"
-                android:icon="@drawable/supprimer">
-                
+                android:icon="@drawable/supprimer"
+                android:title="Supprimer">
+            </item>
+            <item
+                android:id="@+id/query"
+                android:title="Chercher">
             </item>
         </menu>
     </item>
-    
-    
+
 </menu>

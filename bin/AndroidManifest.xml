@@ -28,6 +28,9 @@
         <activity android:name="com.iutorleans.bank.CreerActivity"></activity>
         <activity android:name="com.iutorleans.bank.SupprimerActivity"></activity>
     	<activity android:name="com.iutorleans.bank.SauverActivity"></activity>
+    	<activity android:name="com.iutorleans.bank.QueryActivity"></activity>
+    	<activity android:name="com.iutorleans.bank.CrediterActivity"></activity>
+    	<activity android:name="com.iutorleans.bank.DebiterActivity"></activity>
     </application>
 
 </manifest>

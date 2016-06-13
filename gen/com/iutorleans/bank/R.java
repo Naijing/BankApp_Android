@@ -59,6 +59,7 @@ public final class R {
         public static final int lv_comptes_supprimer=0x7f08000e;
         public static final int lv_files=0x7f080002;
         public static final int nomCreer=0x7f080003;
+        public static final int query=0x7f08001f;
         public static final int quitter=0x7f080019;
         public static final int sauver=0x7f080017;
         public static final int savetodb=0x7f080015;
@@ -68,12 +69,15 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_charger=0x7f030000;
-        public static final int activity_creer=0x7f030001;
-        public static final int activity_main=0x7f030002;
-        public static final int activity_sauver=0x7f030003;
-        public static final int activity_supprimer=0x7f030004;
-        public static final int item_comptes_checkbox_layout=0x7f030005;
-        public static final int item_comptes_layout=0x7f030006;
+        public static final int activity_crediter=0x7f030001;
+        public static final int activity_creer=0x7f030002;
+        public static final int activity_debiter=0x7f030003;
+        public static final int activity_main=0x7f030004;
+        public static final int activity_query=0x7f030005;
+        public static final int activity_sauver=0x7f030006;
+        public static final int activity_supprimer=0x7f030007;
+        public static final int item_comptes_checkbox_layout=0x7f030008;
+        public static final int item_comptes_layout=0x7f030009;
     }
     public static final class menu {
         public static final int fileslist=0x7f070000;
