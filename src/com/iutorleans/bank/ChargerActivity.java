@@ -1,21 +1,24 @@
 package com.iutorleans.bank;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+
 
 import com.iutorleans.bank.adapter.FilesAdapter;
+import com.iutorleans.bank.bean.ComptesBean;
+import com.iutorleans.bank.dao.ComptesDao;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.os.Environment;
-import android.view.ContextMenu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
@@ -26,7 +29,9 @@ public class ChargerActivity extends Activity implements OnItemClickListener {
 
 	private Context mContext1;
 	private ListView fileListView;
-	ArrayList<String> arrayList;
+	private ArrayList<String> arrayList;
+	private ComptesDao comptesDao;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,20 +66,52 @@ public class ChargerActivity extends Activity implements OnItemClickListener {
 
 		fileListView.setOnItemClickListener(this);
 
-		registerForContextMenu(fileListView);
+		//registerForContextMenu(fileListView);
+		comptesDao = new ComptesDao(this);
+		
 
 	}
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
-		String fileName = arrayList.get(position);
-		System.out.println(fileName);
-		Toast.makeText(this, fileName, 1).show();
+		
+		
+		try {
+			String fileName = arrayList.get(position);
+			
+			//Toast.makeText(this, fileName, 1).show();
+			String path=Environment.getExternalStorageDirectory().getPath();
+			
+			File file = new File(path,fileName);
+			FileInputStream fileInputStream = new FileInputStream(file);
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+			
+			while (bufferedReader.ready()) {  
+				String readLine = bufferedReader.readLine();
+				String[] split = readLine.split("##");
+				ComptesBean bean = new ComptesBean();
+				bean.nom=split[1];
+				bean.solde=Float.parseFloat(split[2]);
+				comptesDao.create(bean);				
+	          }  
+						
+			/*HashMap<String, String> hashMap = new HashMap<String, String>();
+			hashMap.put("nom", split[1]);
+			hashMap.put("solde", split[2]);*/	
+			bufferedReader.close();
+			fileInputStream.close();
+			Toast.makeText(this, fileName, 1).show();
+			Intent intent = new Intent(this,MainActivity.class);
+			startActivity(intent);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 	}
 
-	@Override
+	/*@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
 		// TODO Auto-generated method stub
@@ -99,6 +136,6 @@ public class ChargerActivity extends Activity implements OnItemClickListener {
 		}
 
 		return super.onContextItemSelected(item);
-	}
+	}*/
 
 }
