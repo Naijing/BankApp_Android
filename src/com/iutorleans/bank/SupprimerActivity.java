@@ -64,21 +64,28 @@ public class SupprimerActivity extends Activity implements OnClickListener,
 
 		switch (v.getId()) {
 		case R.id.buttonSupprimer:
-			ComptesDao comptesDao = new ComptesDao(mContext);
-			int i = 0;
-			for (ComptesBean c : listComptesChecked) {
-				int res = comptesDao.del(c);
-				if (res != -1) {
-					i++;
-				}
+			
+			if(listComptesChecked.isEmpty()){
+				Toast.makeText(this, "Cochez au moin 1 checkbox", 1).show();
 			}
+			else{
+				
+				ComptesDao comptesDao = new ComptesDao(mContext);
+				int i = 0;
+				for (ComptesBean c : listComptesChecked) {
+					int res = comptesDao.del(c);
+					if (res != -1) {
+						i++;
+					}
+				}
 
-			System.out.println(i);
-			Toast.makeText(this, "Vous avez bien supprimé " + i + " compte(s)",
-					1).show();
-			Intent intent = new Intent(this, MainActivity.class);
-			startActivity(intent);
-
+				System.out.println(i);
+				Toast.makeText(this, "Vous avez bien supprimé " + i + " compte(s)",
+						1).show();
+				Intent intent = new Intent(this, MainActivity.class);
+				startActivity(intent);				
+			}
+			
 			break;
 		case R.id.buttonAnnulerSupprimer:
 			Intent intent1 = new Intent(this, MainActivity.class);

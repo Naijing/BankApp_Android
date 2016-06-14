@@ -34,7 +34,6 @@ public class ChargerActivity extends Activity implements OnItemClickListener, On
 	private ArrayList<String> arrayList;
 	private ComptesDao comptesDao;
 	
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 

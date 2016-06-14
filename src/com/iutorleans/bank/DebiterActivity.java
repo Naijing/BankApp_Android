@@ -17,7 +17,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class DebiterActivity extends Activity implements OnClickListener{
+public class DebiterActivity extends Activity implements OnClickListener {
 
 	private Context mContext;
 	private ArrayList<ComptesBean> allComptes;
@@ -29,7 +29,7 @@ public class DebiterActivity extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_debiter);
-		
+
 		mContext = this;
 
 		ComptesDao comptesDao = new ComptesDao(mContext);
@@ -40,14 +40,14 @@ public class DebiterActivity extends Activity implements OnClickListener{
 				allComptes);
 		listComptesChecked = compteCrudAdapter.getListComptesChecked();
 		lv_comptes_debiter.setAdapter(compteCrudAdapter);
-		
+
 		Button buttonDebiter = (Button) findViewById(R.id.buttonDebiter);
 		Button buttonAnnulerDebiter = (Button) findViewById(R.id.buttonAnnulerDebiter);
 		et_somme = (EditText) findViewById(R.id.et_debiter_somme);
 
 		buttonDebiter.setOnClickListener(this);
 		buttonAnnulerDebiter.setOnClickListener(this);
-	
+
 	}
 
 	@Override
@@ -55,21 +55,28 @@ public class DebiterActivity extends Activity implements OnClickListener{
 		switch (v.getId()) {
 		case R.id.buttonDebiter:
 
-			ComptesDao comptesDao = new ComptesDao(mContext);
-			int i=0;
-			float f=Float.parseFloat(et_somme.getText().toString().trim());
-			for (ComptesBean c : listComptesChecked) {
-				
-				int res = comptesDao.update(Float.toString(c.solde-f),c.id);
-				if (res != -1) {
-					i++;
-				}
-			}
-			
-			Toast.makeText(this, ""+i+"comptes débités"+f+"", 1).show();
+			if (listComptesChecked.isEmpty()) {
+				Toast.makeText(this, "Cochez au moin 1 checkbox", 1).show();
+			} else {
+				ComptesDao comptesDao = new ComptesDao(mContext);
+				int i = 0;
+				float f = Float
+						.parseFloat(et_somme.getText().toString().trim());
+				for (ComptesBean c : listComptesChecked) {
 
-			Intent intent = new Intent(this, MainActivity.class);
-			startActivity(intent);
+					int res = comptesDao.update(Float.toString(c.solde - f),
+							c.id);
+					if (res != -1) {
+						i++;
+					}
+				}
+
+				Toast.makeText(this, "" + i + "comptes débités" + f + "", 1)
+						.show();
+
+				Intent intent = new Intent(this, MainActivity.class);
+				startActivity(intent);
+			}
 
 			break;
 
@@ -83,6 +90,6 @@ public class DebiterActivity extends Activity implements OnClickListener{
 		default:
 			break;
 		}
-		
+
 	}
 }

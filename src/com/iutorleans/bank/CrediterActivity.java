@@ -55,21 +55,29 @@ public class CrediterActivity extends Activity implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.buttonCrediter:
 
-			ComptesDao comptesDao = new ComptesDao(mContext);
-			int i=0;
-			float f=Float.parseFloat(et_somme.getText().toString().trim());
-			for (ComptesBean c : listComptesChecked) {
-				
-				int res = comptesDao.update(Float.toString(f+c.solde),c.id);
-				if (res != -1) {
-					i++;
-				}
-			}
-			System.out.println(i);
-			Toast.makeText(this, ""+i+"comptes crédités"+f+"", 1).show();
+			if (listComptesChecked.isEmpty()) {
+				Toast.makeText(this, "Cochez au moin 1 checkbox", 1).show();
+			} else {
+				ComptesDao comptesDao = new ComptesDao(mContext);
+				int i = 0;
+				float f = Float
+						.parseFloat(et_somme.getText().toString().trim());
+				for (ComptesBean c : listComptesChecked) {
 
-			Intent intent = new Intent(this, MainActivity.class);
-			startActivity(intent);
+					int res = comptesDao.update(Float.toString(f + c.solde),
+							c.id);
+					if (res != -1) {
+						i++;
+					}
+				}
+				System.out.println(i);
+				Toast.makeText(this, "" + i + "comptes crédités" + f + "", 1)
+						.show();
+
+				Intent intent = new Intent(this, MainActivity.class);
+				startActivity(intent);
+
+			}
 
 			break;
 
